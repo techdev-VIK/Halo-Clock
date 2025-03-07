@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: #ffffff;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #212121;
+}
+
+.container{
+  position: relative;
+
+}
+
+.outer-ring{
+  width: 40rem;
+  height: 40rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-ring span{
+  position: absolute;
+  transform: rotate(calc(6deg * var(--i)));
+  inset: 5px;
+  text-align: center;
+}
+
+
+.seconds-ring{
+  width: 35rem;
+  height: 35rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seconds-ring span{
+  position: absolute;
+  transform: rotate(calc(6deg * var(--i)));
+  inset: 5px;
+  text-align: center;
+}
+
+
+.hours-ring{
+  width: 30rem;
+  height: 30rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.20);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hours-ring span{
+  position: absolute;
+  transform: rotate(calc(15deg * var(--i)));
+  inset: 5px;
+  text-align: center;
+}
