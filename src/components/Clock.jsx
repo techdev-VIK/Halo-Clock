@@ -53,12 +53,12 @@ function Clock() {
 
       const arr = []
 
-      for(let i=1; i<=60; i++){
+      for(let i=0; i<60; i++){
         arr.push(i)
       }
 
       return arr.map((second, index) => {
-        const isCurrentSecond = index + 1 === currentSecond;
+        const isCurrentSecond = index === currentSecond;
         
         return(
             <span key={index} style={{ transform: `rotate(${secondsRotation + index * 6}deg)`, transition: "transform 1s linear" }}>
@@ -73,12 +73,12 @@ function Clock() {
 
     const arr = []
 
-      for(let i=1; i<=60; i++){
+      for(let i=0; i<60; i++){
         arr.push(i)
       }
 
     return arr.map((minutes, index) => {
-        const isCurrentMinute = index + 1 === currentMinute;
+        const isCurrentMinute = index === currentMinute;
         return (
             <span key={index} style={{ transform: `rotate(${minutesRotation + index * 6}deg)` }}>
                 <p style={{display:"inline-block", transform: `rotate(${-minutesRotation -index * 6}deg)`, color: isCurrentMinute ? "aqua": "gray"}}>
@@ -94,12 +94,12 @@ function Clock() {
 
     const arr = []
 
-      for(let i=1; i<=24; i++){
+      for(let i=0; i<24; i++){
         arr.push(i)
       }
 
     return arr.map((hours, index) => {
-        const isCurrentHour = index + 1 === currentHour;
+        const isCurrentHour = index === currentHour;
         return (
             <span key={index} style={{ transform: `rotate(${hoursRotation + index * 15}deg)` }}>
                 <p style={{display: "inline-block", transform:`rotate(${-hoursRotation -index*15}deg)`, color:isCurrentHour ? "aqua": "lightgray"}}>
