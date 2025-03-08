@@ -17,7 +17,7 @@ function Clock() {
 
     const interval = setInterval(() => {
         setTime(new Date().toLocaleTimeString())
-        setSecondsRotation(rotation => rotation + 6);
+        setSecondsRotation(rotation => rotation - 6);
     }, 1000);
 
     return () => clearInterval(interval)
@@ -26,7 +26,7 @@ function Clock() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-        setMinutesRotation(rotation => rotation + 6);
+        setMinutesRotation(rotation => rotation - 6);
     }, 60000);
 
     return () => clearInterval(interval)
@@ -35,7 +35,7 @@ function Clock() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-        setHoursRotation(rotation => rotation + 15);
+        setHoursRotation(rotation => rotation - 15);
     }, 3600000);
 
     return () => clearInterval(interval)
@@ -62,7 +62,7 @@ function Clock() {
         
         return(
             <span key={index} style={{ transform: `rotate(${secondsRotation + index * 6}deg)`, transition: "transform 1s linear" }}>
-                <p style={{ display: "inline-block", transform: `rotate(${-secondsRotation -index * 6}deg)`, color: isCurrentSecond ? "aqua" : "gray"}}>{second}</p>
+                <p style={{ display: "inline-block", transform: `rotate(${-secondsRotation -index * 6}deg)`, color: isCurrentSecond ? "aqua" : "rgb(197, 197, 197)"}}>{second}</p>
             </span>
         )
       })
@@ -81,7 +81,7 @@ function Clock() {
         const isCurrentMinute = index === currentMinute;
         return (
             <span key={index} style={{ transform: `rotate(${minutesRotation + index * 6}deg)` }}>
-                <p style={{display:"inline-block", transform: `rotate(${-minutesRotation -index * 6}deg)`, color: isCurrentMinute ? "aqua": "gray"}}>
+                <p style={{display:"inline-block", transform: `rotate(${-minutesRotation -index * 6}deg)`, color: isCurrentMinute ? "aqua": "rgb(197, 197, 197)"}}>
                     {minutes}
                 </p>
             </span>
@@ -102,7 +102,7 @@ function Clock() {
         const isCurrentHour = index === currentHour;
         return (
             <span key={index} style={{ transform: `rotate(${hoursRotation + index * 15}deg)` }}>
-                <p style={{display: "inline-block", transform:`rotate(${-hoursRotation -index*15}deg)`, color:isCurrentHour ? "aqua": "lightgray"}}>
+                <p style={{display: "inline-block", transform:`rotate(${-hoursRotation -index*15}deg)`, color:isCurrentHour ? "aqua": "rgb(197, 197, 197)"}}>
                     {hours}
                 </p>
             </span>
@@ -115,12 +115,22 @@ function Clock() {
   return (
     <>
     <div className="container">
+    
     <div className='outer-ring'>
         {secondsRing()}
+        <div className="cover-rectangle">
+
+        </div>
         <div className="seconds-ring">
             {minutesRing()}
+            <div className="cover-rectangle">
+
+            </div>
             <div className="hours-ring">
                 {hoursRing()}
+                <div className="cover-rectangle">
+                
+                </div>
                 <div className="current-timer">
                     {time}
                 </div>
