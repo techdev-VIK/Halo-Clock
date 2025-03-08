@@ -14,9 +14,9 @@ function Clock() {
 
 
   useEffect(() => {
-    setTime(new Date().toLocaleTimeString())
 
     const interval = setInterval(() => {
+        setTime(new Date().toLocaleTimeString())
         setSecondsRotation(rotation => rotation + 6);
     }, 1000);
 
